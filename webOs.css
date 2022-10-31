@@ -1,0 +1,33 @@
+#console{    
+    color: lime;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    background: #2e2e2e;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;}
+#consoleInput{
+    width: -webkit-fill-available;
+    background: black;
+    color: white;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    bottom: 5px;
+    left: 0px;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.appFloatConteneur{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+}

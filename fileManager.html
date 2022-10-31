@@ -1,0 +1,229 @@
+<div id="fillMContent" class="fillMContent"></div>
+<div id="fillMLeftBar" class="fillMLeftBar" ononmouseup="if(window.event.which==3){contexeMenuFile()}" >
+    <div id="Home" onclick="displayFiles('/home/user')"><i class="fa-solid fa-house"></i> Home</div>
+    <div id="Bureau" onclick="displayFiles('/home/user/bureau')"><i class="fa-solid fa-computer"></i> Bureau</div>
+    <div id="Download" onclick="displayFiles('/home/user/download')"><i class="fa-solid fa-download"></i> Download</div>
+    <div id="Document" onclick="displayFiles('/home/user/document')"><i class="fa-solid fa-file-text"></i> Document</div>
+    <div id="Image" onclick="displayFiles('/home/user/image')"><i class="fa-solid fa-camera"></i> Image</div>
+    <div id="Music" onclick="displayFiles('/home/user/music')"><i class="fa-solid fa-music"></i> Music</div>
+    <div id="Video" onclick="displayFiles('/home/user/video')"><i class="fa-solid fa-film"></i> Video</div>
+    <div id="/" onclick="displayFiles('/')"><i class="fa-solid fa-gear"></i> /</div>
+</div>
+<div id="fillMTopBar" class="fillMTopBar">
+    <div><button class="prevuiue" id="prevuiue" onclick="previueFolder()"><i class="fa-solid fa-caret-left"></i></button>
+    <button class="next next-noActive" id="next" onclick="nextFolder()"><i class="fa-solid fa-caret-right"></i></button></div>
+    <div id="rechercheDisplay" class="rechercheDisplay recherche" onclick="displayPatchBar()">
+    </div>
+    <button id="new" onclick="newFolder()" ><i class="fa-solid fa-folder-plus"></i></button>
+
+</div>
+<div id="menu" class="menu">
+    <div id="menuFile" class="menuFile">
+        <div id="open" class="select menuFill" onclick="openFile(pathFile)"><i class="fa-solid fa-folder-open"></i> Open</div>
+        <div id="rename" class="select menuFill" onclick="renameFile(pathFile)"><i class="fa-solid fa-edit"></i> Rename</div>
+        <div id="delete" class="select menuFill" onclick="deleteFile(pathFile)"><i class="fa-solid fa-trash"></i> Delete</div>
+        <div id="copy" class="select menuFill" onclick="copyFile(pathFile)"><i class="fa-solid fa-copy"></i> Copy</div>
+        <div id="paste" class="select menuFill"onclick="pasteFile(pathFile)"><i class="fa-solid fa-paste"></i> Paste</div>
+    
+        <div id="open2" class="restore" style="display: none;" onclick="openFile(pathFile)"></div>
+        <div id="rename2" class="restore" style="display: none;" onclick="renameFile(pathFile)"></div>
+        <div id="delete2" class="restore" style="display: none;" onclick="deleteFile(pathFile)"></div>
+        <div id="copy2" class="restore" style="display: none;" onclick="copyFile(pathFile)"></div>
+        <div id="paste2" class="restore" style="display: none;" onclick="pasteFile(pathFile)"></div>
+    </div>
+</div>
+<script>displayFiles("/")</script>
+<style>
+    .file p{
+        transition: 0.2s;
+    }
+    .fileSelected p {
+        background: rgb(255 206 0);
+        border-radius: 15px;
+    }
+    .menu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        padding: 10px;
+        background-color: rgb(255, 255, 255);
+        border: 3px solid rgb(0, 0, 0);
+        border-radius:10px ;
+        display: none;
+    }
+    .select{
+        border: solid rgb(0, 0, 0);
+        border-width: 0 0 1px 0;
+        cursor: pointer;
+    }
+    .select:hover {
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+    }
+    .fillMTopBar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #262626;
+        border: black 0px solid;
+        border-bottom-width: 3px;
+        display: flex;
+        color: white;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .fillMContent {
+        position: absolute;
+        top: 50px;
+        left: 200px;
+        width: calc(100% - 200px);
+        height: calc(100% - 50px);
+        background-color: #262626;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: auto;
+        align-content: flex-start;
+    }
+    .file{
+        width: 100px;
+        height: fit-content;
+        background-color: #262626;
+        color: white;
+        text-align: center;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .fillMContent img {
+        width: 100px;
+        height: 100xp;
+        object-fit: contain;
+    }
+    .fillMContent ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+    .fillMLeftBar ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+    .fillMLeftBar {
+        position: absolute;
+        top: 53px;
+        left: 0;
+        width: 200px;
+        height: calc(100% - 53px);
+        background-color: #262626;
+        border: black 0px solid ;
+        border-right-width: 3px;
+    }
+    .fillMLeftBar div {
+        color: white;
+        padding: 10px;
+        transition: 0.5s;
+    }
+    .fillMLeftBar div:hover {
+        background-color: #3a3a3a;
+        border:  1px solid;
+
+        border-radius: 5px;
+    }
+    .fillMContent div {
+        margin: 3px;
+        transition: 0.5s;
+
+    }
+    .fillMContent div:hover {
+        background-color: #3a3a3a;
+        border:  1px solid;
+        border-radius: 5px;
+    }
+    .active{
+        background-color: #3a3a3a;
+        border: black 1px solid;
+        border-radius: 5px; 
+    }
+    .fillMContent svg {
+        height: 100px;
+        width: 100px;
+        fill: rgb(109, 109, 109);
+        color: rgb(109, 109, 109);
+    }
+    .recherche {
+        border: black 3px solid;
+        border-radius: 100px;
+        padding: 5px 100px;
+        background: rgb(52 52 52);
+        text-align: center;
+        font-size: 20px;
+        transition: 0.5s;
+    }
+    .fillMTopBar button {
+        border: black 3px solid;
+        height: 40px;
+        width: 40px;
+        margin: 30px;
+        border-radius: 3px;
+        background: rgb(51,51,51);
+        color: white;
+        font-size: 20px;
+        transition: 0.5s;
+    }
+    .fillMTopBar button.prevuiue {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-right-width: 1.5px;
+
+        margin-right: 0px;
+    }
+    .fillMTopBar button.next {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-left-width: 1.5px;
+        margin-left: -4px;
+    }
+    .fillMTopBar button.next-noActive {
+        color: #8f8f8f;
+    }
+    .fillMTopBar button#new {
+        border-radius: 15px;
+    }
+    .fillMTopBar button:hover {
+        background: rgb(61,61,61);
+        border-color: white;
+    }
+    .html {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .html2 {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+
+    div#outHtmlTop {
+        text-align: center;
+        background-color: rgb(40 40 40);
+    }
+
+    input#saveF {
+        border-radius: 10px;
+        background: #838383;
+        border: black 3px solid;
+    }
+
+    button#save {
+        border-radius: 10px;
+        background: #838383;
+        border: black 3px solid;
+    }
+</style>

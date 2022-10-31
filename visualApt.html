@@ -1,0 +1,122 @@
+<div class="topBar" id="topBar">
+    <input type="text" id="search" placeholder="Search" autocomplete="off" onkeydown="visualAptStart(document.getElementById('search').value)" />
+    <button id="searchButton"
+    onclick="visualAptStart(document.getElementById('search').value)"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+<div class="content" id="content"></div>
+<style>
+    .topBar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: rgb(61,61,61);
+        border-bottom: 1px solid rgb(40,40,40);
+        z-index: 100;
+    }
+    .topBar input {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 30px;
+        border: 1px solid rgb(40,40,40);
+        border-radius: 5px;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+    .topBar button {
+        position: absolute;
+        top: 50%;
+        right: calc(50% - 200px);
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        color: white;
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: rgb(61,61,61);
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .topBar button:hover {
+        background-color: rgb(71,71,71);
+    }
+    .content {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 50px);
+        background-color: rgb(71,71,71);
+        overflow: auto;
+    }
+    .content::-webkit-scrollbar {
+        display: none;
+    }
+    .appIcon {
+        width: 100px;
+        height: 100px;
+    }
+    .appNames {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        border: 1px solid rgb(40,40,40);
+        border-radius: 5px;
+        background-color: rgb(61,61,61);
+        cursor: pointer;
+    }
+    .appIcon img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .appName {
+        margin:10px;
+    }
+
+    .appInt {
+        margin: 5px;
+        display: flex;
+        text-align: center;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 50%;
+        transform: translate(-50%);
+        border: 1px solid rgb(40,40,40);
+        border-radius: 5px;
+        background-color: rgb(61,61,61);
+        cursor: pointer;
+    }
+    .appText{
+        text-align: start;
+    }
+    .appDescription {
+        font-size: smaller;
+        margin-left: 20px;
+    }
+    .remove {
+        position: absolute;
+        right: 50px;
+        background: red;
+        padding: 10px;
+        border: black 1px solid;
+        border-radius: 10px;
+        font-size: 30px;
+    }
+    .install {
+        position: absolute;
+        right: 50px;
+        background: rgb(0, 255, 0);
+        padding: 10px;
+        border: black 1px solid;
+        border-radius: 10px;
+        font-size: 30px;
+    }
+</style>

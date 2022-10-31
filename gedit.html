@@ -1,0 +1,53 @@
+<div class="topBar" style="color: rgb(255,255,255)"><button id="open" class="open" onclick="openFill();">open</button><button id="save" class="save" onclick="saveFile();">save</button>WIP (work in progress) </div>
+<div class="maint">
+    <textarea id="textArea" class="textArea" rows="1000" cols="1000" wrap="hard" spellcheck="true" placeholder="" autofocus></textarea>
+</div>
+<div class="bottomBar"></div>
+<style>
+    .textArea{
+        position: absolute;
+        left: 20px;
+        font-family: monospace;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(23, 1, 121);
+        border: 0;
+        outline: 0;
+        resize: none;
+        overflow: auto;
+        padding: 0;
+        margin: 0;
+        width: calc(100% - 20px);
+        height: 100%;
+    }
+    /*delete ::-webkit-scrollbar*/
+    .maint ::-webkit-scrollbar{
+        width: 0;
+        height: 0;
+    }
+    .textArea ::-webkit-scrollbar{
+        width: 0;
+        height: 0;
+    }
+    .maint{
+        background-color: rgb(14, 0, 78);
+        position: absolute;
+        top: 30px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+    }
+    .topBar{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        background-color: #000;
+    }
+    
+</style>
+<script>
+    onStartup();
+</script>
